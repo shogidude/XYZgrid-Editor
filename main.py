@@ -13,8 +13,8 @@ Website: backrooms.net
 from tkinter import Tk, Canvas, Frame, BOTH, W
 import map.mapping_utils as mu
 
-grid_width = 24
-grid_height = 6
+grid_width = 1
+grid_height = 19
 
 
 class XYZgridEditor(Frame):
