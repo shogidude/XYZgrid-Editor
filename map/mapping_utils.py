@@ -102,6 +102,49 @@ def make_top_number_row(width, height):
     return retval
 
 
+def make_bottom_number_row(width, height):
+    retval = ""
+    row100s = ""
+    row10s = ""
+    row1s = ""
+
+    prefix_space = ""
+    for x in range(len(str(height))-1):
+        prefix_space += " "
+
+    number_of_digits = (len(str(width-1)))
+
+    # top grid only handling 0-999 currently.
+    for x in range(width):
+        print(str(x))
+        if width > 100:
+            if x > 99:
+                row100s += str((divmod(x, 1000)[1])//100) + " "
+            else:
+                row100s += "  "
+
+        if width > 10:
+            if x > 9:
+                row10s += str((divmod(x, 100)[1])//10) + " "
+            else:
+                row10s += "  "
+
+        row1s += str(divmod(x, 10)[1]) + " "
+
+    # TODO: Y prefix size needs to be dynamic
+    if len(row100s) > 0:
+        row100s = prefix_space + "  " + row100s + "\n"
+
+    if len(row10s) > 0:
+        row10s = prefix_space + "  " + row10s + "\n"
+
+    row1s = prefix_space + "+ " + row1s + "*\n" #TODO: remove the '*'
+
+    retval += row1s + row10s + row100s + "\n"
+
+    return retval
+
+
 def make_empty_map(width, height):
     new_map = ""
 
@@ -113,5 +156,8 @@ def make_empty_map(width, height):
 
     # blank row
     new_map += make_empty_row(width, height)
+
+    # top numbers
+    new_map += make_bottom_number_row(width, height)
 
     return new_map
