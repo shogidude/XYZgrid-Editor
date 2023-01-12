@@ -50,8 +50,8 @@ def make_center_rows(width, height):
         substring_length = (len(prefix_space) - len(str(x)))
         # print("sublen= " + str(substring_length) + "\n")
         modified_prefix = prefix_space[0:substring_length] + str(x)
-        retval += modified_prefix + rest_of_line_space + "*\n"
-        retval += prefix_space + rest_of_line_space + "*\n"
+        retval = modified_prefix + rest_of_line_space + "*\n" + retval
+        retval = prefix_space + rest_of_line_space + "*\n" + retval
 
 
     #blank_line += rest_of_line_space + "*\n" #TODO: remove the '*'
@@ -108,10 +108,10 @@ def make_empty_map(width, height):
     # top numbers
     new_map += make_top_number_row(width, height)
 
-    # blank row
-    new_map += make_empty_row(width, height)
-
     # center rows
     new_map += make_center_rows(width, height)
+
+    # blank row
+    new_map += make_empty_row(width, height)
 
     return new_map

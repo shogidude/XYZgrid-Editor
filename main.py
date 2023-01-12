@@ -13,7 +13,7 @@ Website: backrooms.net
 from tkinter import Tk, Canvas, Frame, BOTH, W
 import map.mapping_utils as mu
 
-grid_width = 1
+grid_width = 125
 grid_height = 19
 
 
