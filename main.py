@@ -14,22 +14,17 @@ from tkinter import Tk, Canvas, Frame, BOTH, W, Menu
 import map.mapping_utils as mu
 
 
-
 class XYZgridFrame(Frame):
-
     grid_width = 8
     grid_height = 5
 
-    current_map = mu.make_empty_map( grid_width, grid_height)
+    current_map = mu.make_empty_map(grid_width, grid_height)
 
     def __init__(self, master):
         Frame.__init__(self, master)
         self.initUI()
 
-
     def initUI(self):
-
-        self.master.title("XYZgrid Editor")
         self.pack(fill=BOTH, expand=1)
 
         # XYZGrid Map
@@ -47,21 +42,25 @@ class XYZgridFrame(Frame):
 
 
 def main():
-
     root = Tk()
-    ex = XYZgridFrame(root)
+    root.title("XYZgrid Editor")
     root.geometry("800x640+300+300")
 
-    # Menu for the app
-    menubar = Menu(root)
-    root.config(menu=menubar)
+    XYZgridFrame(root)
 
+
+    # Menubar for the app
+    menubar = Menu(root)
+
+    # File menu
     file_menu = Menu(menubar)
     file_menu.add_command(
         label='Exit',
-        command=root.destroy,
+        command=root.destroy
     )
+    menubar.add_cascade(label="File", menu=file_menu)
 
+    root.config(menu=menubar)
     root.mainloop()
 
 
