@@ -73,7 +73,7 @@ def make_top_number_row(width, height):
 
     # top grid only handling 0-999 currently.
     for x in range(width):
-        print(str(x))
+        # print(str(x))
         if width > 100:
             if x > 99:
                 row100s += str((divmod(x, 1000)[1])//100) + " "
@@ -116,7 +116,7 @@ def make_bottom_number_row(width, height):
 
     # top grid only handling 0-999 currently.
     for x in range(width):
-        print(str(x))
+        # print(str(x))
         if width > 100:
             if x > 99:
                 row100s += str((divmod(x, 1000)[1])//100) + " "

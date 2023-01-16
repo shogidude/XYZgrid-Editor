@@ -10,41 +10,29 @@ Author: ShogiDude
 Website: backrooms.net
 """
 
-from tkinter import Tk, Canvas, Frame, BOTH, W
+from tkinter import Tk, Canvas, Frame, BOTH, W, Menu
 import map.mapping_utils as mu
 
-grid_width = 125
-grid_height = 19
 
 
-class XYZgridEditor(Frame):
-    current_map = r"""
-    + 0 1 2 3
+class XYZgridFrame(Frame):
 
-    3
+    grid_width = 8
+    grid_height = 5
 
-    2
+    current_map = mu.make_empty_map( grid_width, grid_height)
 
-    1
-
-    0 
-
-    + 0 1 2 3
-
-    """
-
-    def __init__(self):
-        super().__init__()
-
-        self.current_map = mu.make_empty_map( grid_width, grid_height)
-
+    def __init__(self, master):
+        Frame.__init__(self, master)
         self.initUI()
+
 
     def initUI(self):
 
         self.master.title("XYZgrid Editor")
         self.pack(fill=BOTH, expand=1)
 
+        # XYZGrid Map
         canvas = Canvas(self)
 
         canvas.create_text(20, 20, anchor=W, font="Purisa", text="Currently selected character: -")
@@ -61,8 +49,19 @@ class XYZgridEditor(Frame):
 def main():
 
     root = Tk()
-    ex = XYZgridEditor()
+    ex = XYZgridFrame(root)
     root.geometry("800x640+300+300")
+
+    # Menu for the app
+    menubar = Menu(root)
+    root.config(menu=menubar)
+
+    file_menu = Menu(menubar)
+    file_menu.add_command(
+        label='Exit',
+        command=root.destroy,
+    )
+
     root.mainloop()
 
 
