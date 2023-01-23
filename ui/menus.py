@@ -112,8 +112,8 @@ def config_menubar(root):
     )
 
     config_menu.add_command(
-        label='Configure exit',
-        command=lambda: print_command('Configure exit')
+        label='Configure exit(s)',
+        command=lambda: print_command('Configure exit(s)')
     )
 
     config_menu.add_separator()

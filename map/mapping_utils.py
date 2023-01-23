@@ -3,7 +3,7 @@ mapping_utils
 
 Utility functions for the XYZgrid Editor.
 
-Author: ShogiDude
+Author: T Gene Davis (ShogiDude)
 Website: backrooms.net
 """
 
@@ -143,21 +143,3 @@ def make_bottom_number_row(width, height):
     retval += row1s + row10s + row100s + "\n"
 
     return retval
-
-
-def make_empty_map(width, height):
-    new_map = ""
-
-    # top numbers
-    new_map += make_top_number_row(width, height)
-
-    # center rows
-    new_map += make_center_rows(width, height)
-
-    # blank row
-    new_map += make_empty_row(width, height)
-
-    # top numbers
-    new_map += make_bottom_number_row(width, height)
-
-    return new_map
