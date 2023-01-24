@@ -1,4 +1,5 @@
 from tkinter import Menu
+import ui.menu_actions as ma
 
 def print_command(the_command):
     print("menu selected-->" + the_command) #debugging and a placeholder
@@ -11,17 +12,17 @@ def config_menubar(root):
 
     file_menu.add_command(
         label='New',
-        command=lambda: print_command('New')
+        command=lambda: ma.create_new_map(root)
     )
 
     file_menu.add_command(
         label='Open',
-        command=lambda: print_command('Open')
+        command=lambda: ma.open_map(root)
     )
 
     file_menu.add_command(
         label='Save as ...',
-        command=lambda: print_command('Save as ...')
+        command=lambda: ma.save_as_map(root)
     )
 
     file_menu.add_separator()

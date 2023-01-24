@@ -1,4 +1,4 @@
-from tkinter import Canvas, Frame, BOTH, W
+from tkinter import Canvas, Frame, BOTH, NW
 from map.mapping_data import StandardMap
 
 class XYZgridFrame(Frame):
@@ -17,12 +17,12 @@ class XYZgridFrame(Frame):
         # XYZGrid Map
         canvas = Canvas(self)
 
-        canvas.create_text(20, 20, anchor=W, font="Purisa", text="Currently selected character: -")
+        canvas.create_text(20, 20, anchor=NW, font="Purisa", text="Currently selected character: -")
 
         current_line_location = 30
         map_lines = self.current_map.map.split('\n')
         for line in map_lines:
-            canvas.create_text(20, current_line_location, anchor=W, font="Courier", text=line)
+            canvas.create_text(20, current_line_location, anchor=NW, font="Courier", text=line)
             current_line_location += 15
 
         canvas.pack(fill=BOTH, expand=1)
