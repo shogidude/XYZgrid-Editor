@@ -1,4 +1,5 @@
 import tkinter as tki
+import map.mapping_frame as mf
 
 def create_new_map(root):
     NewMapDialog()
@@ -39,6 +40,8 @@ class NewMapDialog(object):
         #TODO: set default values of width and height if none given
         width = self.width_entry.get()
         height = self.height_entry.get()
+
+        mf.XYZgridFrame.draw_new_grid(int(width), int(height))
 
         print("width ... ", width)
         print("height ... ", height)
