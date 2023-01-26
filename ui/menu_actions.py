@@ -4,21 +4,19 @@ from tkinter import RAISED, BOTH, RIGHT
 import map.mapping_frame as mf
 
 def create_new_map(root):
-    NewMapDialog()
+    NewMapDialog(root)
 
 
 
 class NewMapDialog(object):
 
-    root = None
+    def __init__(self, root):
 
-    def __init__(self):
+        self.top = tki.Toplevel(root)
+        self.top.geometry("250x100+300+300")
+        self.top.title('New map ...')
 
-        root = self.root = tki.Tk()
-        root.geometry("250x100+300+300")
-        root.title('New map ...')
-
-        frm = tki.Frame(self.root, borderwidth=4, relief='ridge')
+        frm = tki.Frame(self.top, borderwidth=4, relief='ridge')
         frm.pack(fill='both', expand=True)
 
         inner_frame = tki.Frame(frm, borderwidth=2)
@@ -45,8 +43,10 @@ class NewMapDialog(object):
         b_submit.pack(side=RIGHT, padx=5, pady=5)
 
         b_cancel = tki.Button(frm, text='Cancel')
-        b_cancel['command'] = self.root.destroy
+        b_cancel['command'] = self.top.destroy
         b_cancel.pack(side=RIGHT)
+
+        self.top.grab_set()
 
 
     def entry_to_dict(self):
@@ -58,7 +58,7 @@ class NewMapDialog(object):
 
         print("width ... ", width)
         print("height ... ", height)
-        self.root.destroy()
+        self.top.destroy()
 
 
 
