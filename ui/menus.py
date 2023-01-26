@@ -11,7 +11,7 @@ def config_menubar(root):
     file_menu = Menu(menubar, tearoff=0)
 
     file_menu.add_command(
-        label='New',
+        label='New map ...',
         command=lambda: ma.create_new_map(root)
     )
 
