@@ -12,8 +12,16 @@ class NewMapDialog(object):
 
     def __init__(self, root):
 
+        root.update_idletasks()
+
+        dialog_width = 250
+        dialog_height = 100
+
+        at_y = int(root.winfo_rooty() + (root.winfo_height() / 4) - (dialog_height/2))
+        at_x = int(root.winfo_rootx() + (root.winfo_width() / 2) - (dialog_width/2))
+
         self.top = tki.Toplevel(root)
-        self.top.geometry("250x100+300+300")
+        self.top.geometry(f"{dialog_width}x{dialog_height}+{at_x}+{at_y}")
         self.top.title('New map ...')
 
         frm = tki.Frame(self.top, borderwidth=4, relief='ridge')
@@ -50,15 +58,17 @@ class NewMapDialog(object):
 
 
     def entry_to_dict(self):
-        #TODO: set default values of width and height if none given
-        width = self.width_entry.get()
-        height = self.height_entry.get()
+        try:
+            width = self.width_entry.get()
+            height = self.height_entry.get()
 
-        mf.XYZgridFrame.draw_new_grid(int(width), int(height))
+            mf.XYZgridFrame.draw_new_grid(int(width), int(height))
 
-        print("width ... ", width)
-        print("height ... ", height)
-        self.top.destroy()
+            print("width ... ", width)
+            print("height ... ", height)
+            self.top.destroy()
+        except:
+            print("Bad width or height given.")
 
 
 
