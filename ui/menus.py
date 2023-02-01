@@ -16,13 +16,15 @@ def config_menubar(root):
     )
 
     file_menu.add_command(
-        label='Open',
-        command=lambda: ma.open_map(root)
+        label='Import map ...',
+        command=lambda: ma.import_map(root)
     )
 
+    file_menu.add_separator()
+
     file_menu.add_command(
-        label='Save as ...',
-        command=lambda: ma.save_as_map(root)
+        label='Generate code ...',
+        command=lambda: ma.generate_code(root)
     )
 
     file_menu.add_separator()

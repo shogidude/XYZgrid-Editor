@@ -71,16 +71,11 @@ class NewMapDialog(object):
             print("Bad width or height given.")
 
 
+def import_map(root):
+
+    print("Import map.")
 
 
+def generate_code(root):
 
-
-
-def open_map(root):
-
-    print("Opening map.")
-
-
-def save_as_map(root):
-
-    print("Saving map.")
+    print("Generating code.")
