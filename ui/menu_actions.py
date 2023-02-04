@@ -2,6 +2,8 @@ import tkinter as tki
 from tkinter import RAISED, BOTH, RIGHT
 
 import map.mapping_frame as mf
+from ui.code_gen_toplevel import CodeGenToplevel
+
 
 def create_new_map(root):
     NewMapDialog(root)
@@ -79,3 +81,4 @@ def import_map(root):
 def generate_code(root):
 
     print("Generating code.")
+    CodeGenToplevel(root)
