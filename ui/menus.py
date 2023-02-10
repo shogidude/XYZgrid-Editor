@@ -1,5 +1,7 @@
 from tkinter import Menu
 import ui.menu_actions as ma
+from ui.typing_direction import TypingDirection
+
 
 def print_command(the_command):
     print("menu selected-->" + the_command) #debugging and a placeholder
@@ -59,42 +61,42 @@ def config_menubar(root):
 
     edit_menu.add_command(
         label='Type north',
-        command=lambda: print_command('Type north')
+        command=lambda: TypingDirection.set_selected_direction('N')
     )
 
     edit_menu.add_command(
         label='Type northeast',
-        command=lambda: print_command('Type northeast')
+        command=lambda: TypingDirection.set_selected_direction('NE')
     )
 
     edit_menu.add_command(
         label='Type east',
-        command=lambda: print_command('Type east')
+        command=lambda: TypingDirection.set_selected_direction('E')
     )
 
     edit_menu.add_command(
         label='Type southeast',
-        command=lambda: print_command('Type southeast')
+        command=lambda: TypingDirection.set_selected_direction('SE')
     )
 
     edit_menu.add_command(
         label='Type south',
-        command=lambda: print_command('Type south')
+        command=lambda: TypingDirection.set_selected_direction('S')
     )
 
     edit_menu.add_command(
         label='Type southwest',
-        command=lambda: print_command('Type southwest')
+        command=lambda: TypingDirection.set_selected_direction('SW')
     )
 
     edit_menu.add_command(
         label='Type west',
-        command=lambda: print_command('Type west')
+        command=lambda: TypingDirection.set_selected_direction('W')
     )
 
     edit_menu.add_command(
         label='Type northwest',
-        command=lambda: print_command('Type northwest')
+        command=lambda: TypingDirection.set_selected_direction('NW')
     )
 
     menubar.add_cascade(label="Edit", menu=edit_menu)

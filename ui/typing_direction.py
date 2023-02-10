@@ -14,17 +14,10 @@ class TypingDirection(ttk.Frame):
         # setting up canvas
         self.initUI()
 
-    # @classmethod
-    # def draw_new_grid(cls, width, height):
-    #     cls.grid_width = width
-    #     cls.grid_height = height
-    #     cls.current_map = StandardMap(cls.grid_width, cls.grid_height)
-    #     cls.canvas.delete("all")
-    #     cls.single_instance.initUI()
-    #     #cls.canvas.update_idletasks
-    #
-    #     # update the scrolling region
-    #     cls.canvas.configure(scrollregion=cls.canvas.bbox("all"))
+    @classmethod
+    def set_selected_direction(cls, direction):
+        # valid values for 'direction' are N, NE, E, SE, S, SW, W, NW
+        cls.selected.set(direction)
 
     def initUI(self):
 
