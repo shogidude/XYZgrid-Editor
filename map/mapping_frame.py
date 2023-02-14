@@ -1,3 +1,4 @@
+import tkinter as tki
 from tkinter import Canvas, Scrollbar, Frame, BOTH, NW, BOTTOM, X, RIGHT, Y
 from map.mapping_data import StandardMap
 
@@ -23,10 +24,10 @@ class XYZgridFrame(Frame):
             XYZgridFrame.canvas = Canvas(self)
 
         # Scrollbars
-        scroll_x = Scrollbar(self, orient="horizontal", command=XYZgridFrame.canvas.xview)
+        scroll_x = tki.Scrollbar(self, orient="horizontal", command=XYZgridFrame.canvas.xview)
         scroll_x.pack(side=BOTTOM, fill=X)#.grid(row=1, column=0, sticky="ew")
 
-        scroll_y = Scrollbar(self, orient="vertical", command=XYZgridFrame.canvas.yview)
+        scroll_y = tki.Scrollbar(self, orient="vertical", command=XYZgridFrame.canvas.yview)
         scroll_y.pack(side=RIGHT, fill=Y)#.grid(row=0, column=1, sticky="ns")
 
         XYZgridFrame.canvas.configure(yscrollcommand=scroll_y.set, xscrollcommand=scroll_x.set)

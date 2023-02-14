@@ -1,5 +1,5 @@
 import tkinter as tki
-from tkinter import RIGHT, BOTH
+from tkinter import RIGHT, BOTH, NONE, VERTICAL, HORIZONTAL, BOTTOM, X, Y
 from tkinter import Text
 
 pre_map = r'''
@@ -68,7 +68,7 @@ class CodeGenToplevel(object):
         root.update_idletasks()
 
         dialog_width = 800
-        dialog_height = 400
+        dialog_height = 500
 
         at_y = int(root.winfo_rooty() + (root.winfo_height() / 4) - (dialog_height/2))
         at_x = int(root.winfo_rootx() + (root.winfo_width() / 2) - (dialog_width/2))
@@ -78,24 +78,34 @@ class CodeGenToplevel(object):
         self.top.title('Xyzgrid code ...')
 
         frm = tki.Frame(self.top, borderwidth=4, relief='ridge')
-        frm.pack(fill='both', expand=True)
 
         inner_frame = tki.Frame(frm, borderwidth=2)
         inner_frame.pack(fill=BOTH, expand=True)
 
         text_box = Text(
             inner_frame,
-            height=20,
-            width=80
+            wrap=NONE
         )
-        text_box.pack(expand=True)
+
+        # Scrollbars
+        scroll_x = tki.Scrollbar(inner_frame, orient="horizontal", command=text_box.xview)
+        scroll_x.pack(side=BOTTOM, fill=X)
+
+        scroll_y = tki.Scrollbar(inner_frame, orient="vertical", command=text_box.yview)
+        scroll_y.pack(side=RIGHT, fill=Y)
+
+        text_box.configure(yscrollcommand=scroll_y.set, xscrollcommand=scroll_x.set)
+
+        text_box.pack(fill=BOTH, expand=True)
         text_box.insert('end', map_code)
         text_box.config(state='disabled')
 
         #close the window
         b_submit = tki.Button(frm, text='Close')
         b_submit['command'] = lambda: self.close_window()
-        b_submit.pack(side=RIGHT, padx=5, pady=5)
+        b_submit.pack(fill=BOTH, side=RIGHT, padx=15, pady=10)
+
+        frm.pack(fill=BOTH, expand=True)
 
         self.top.grab_set()
 
