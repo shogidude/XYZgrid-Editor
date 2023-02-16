@@ -106,7 +106,7 @@ def config_menubar(root):
 
     config_menu.add_command(
         label='Teleporter letters',
-        command=lambda: print_command('Teleporter letters')
+        command=lambda: ma.change_teleporter_letters(root)
     )
 
     config_menu.add_separator()
