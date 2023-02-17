@@ -20,7 +20,6 @@ def generate_code(root):
 
 
 def change_teleporter_letters(root):
-    TeleporterLetters() #just in case needs initializing
     letters = simpledialog.askstring("Teleporter Letters",
                                      "Comma separated list of teleporter letters:",
                                      initialvalue=TeleporterLetters.get_teleporter_letters(),

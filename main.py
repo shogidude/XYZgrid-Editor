@@ -13,11 +13,18 @@ Website: backrooms.net
 from tkinter import Tk, TOP, X, Y, LEFT, StringVar
 from tkinter import ttk
 import ui.menus as me
+from map.descriptions import GridDescriptions
 from map.mapping_frame import XYZgridFrame
+from map.teleporter_letters import TeleporterLetters
 from ui.typing_direction import TypingDirection
 
 
 def main():
+    # initialize singletons
+    TeleporterLetters()
+    GridDescriptions()
+
+    # UI setup
     root = Tk()
     root.title("XYZgrid Editor")
     root.geometry("800x640+300+300")
